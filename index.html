@@ -1,0 +1,1362 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech | Gadgets e Tecnologia</title>
+
+<style>
+:root{
+--fundo:#080b14;
+--painel:#111827;
+--painel2:#192235;
+--texto:#f1f5f9;
+--secundario:#94a3b8;
+--azul:#38bdf8;
+--verde:#2dd4bf;
+--borda:#263449;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+background:var(--fundo);
+color:var(--texto);
+font-family:Arial,Helvetica,sans-serif;
+line-height:1.6;
+}
+
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+header{
+background:rgba(8,11,20,.97);
+border-bottom:1px solid var(--borda);
+position:sticky;
+top:0;
+z-index:10;
+padding:16px 5%;
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+letter-spacing:-1px;
+}
+
+.logo span{color:var(--verde)}
+
+nav{display:flex;gap:22px}
+
+nav a{
+color:var(--secundario);
+text-decoration:none;
+font-size:14px;
+}
+
+nav a:hover{color:var(--azul)}
+
+.carrinho-topo{
+border:1px solid var(--borda);
+color:white;
+background:var(--painel);
+border-radius:10px;
+padding:9px 15px;
+}
+
+main{
+max-width:1400px;
+margin:auto;
+padding:35px 5%;
+}
+
+.hero{
+background:linear-gradient(120deg,#14253d,#102f3b);
+border:1px solid #244257;
+border-radius:20px;
+padding:55px 6%;
+margin-bottom:35px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+overflow:hidden;
+}
+
+.hero-texto{max-width:650px}
+
+.etiqueta{
+color:var(--verde);
+text-transform:uppercase;
+font-size:12px;
+letter-spacing:2px;
+font-weight:bold;
+}
+
+.hero h1{
+font-size:clamp(32px,5vw,55px);
+line-height:1.12;
+margin:15px 0;
+}
+
+.hero h1 span{color:var(--azul)}
+
+.hero p{
+color:#c0cfdf;
+margin-bottom:25px;
+}
+
+.botao{
+display:inline-block;
+background:var(--azul);
+color:#06111b;
+border:none;
+padding:12px 20px;
+border-radius:9px;
+text-decoration:none;
+font-weight:bold;
+transition:.2s;
+}
+
+.botao:hover{
+transform:translateY(-2px);
+filter:brightness(1.1);
+}
+
+.hero-icone{font-size:clamp(80px,14vw,160px)}
+
+.beneficios{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:40px;
+}
+
+.beneficio{
+background:var(--painel);
+border:1px solid var(--borda);
+padding:18px;
+border-radius:12px;
+}
+
+.beneficio strong{display:block;margin-bottom:5px}
+
+.beneficio p{
+color:var(--secundario);
+font-size:13px;
+}
+
+.secao-titulo{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.secao-titulo h2{font-size:27px}
+
+.secao-titulo p{
+color:var(--secundario);
+font-size:14px;
+}
+
+.filtros{
+display:flex;
+gap:12px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.filtros input,.filtros select{
+background:var(--painel);
+color:white;
+border:1px solid var(--borda);
+padding:12px;
+border-radius:9px;
+outline:none;
+}
+
+.filtros input{flex:1;min-width:200px}
+.filtros select{min-width:175px}
+
+.produtos{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:20px;
+}
+
+.produto{
+background:var(--painel);
+border:1px solid var(--borda);
+border-radius:14px;
+overflow:hidden;
+transition:.2s;
+display:flex;
+flex-direction:column;
+}
+
+.produto:hover{
+border-color:#38bdf888;
+transform:translateY(-4px);
+}
+
+.produto-imagem{
+height:165px;
+background:linear-gradient(135deg,#18263a,#101827);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:75px;
+}
+
+.produto-info{
+padding:17px;
+display:flex;
+flex-direction:column;
+flex:1;
+}
+
+.categoria{
+color:var(--verde);
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.produto h3{
+font-size:17px;
+margin:7px 0;
+}
+
+.descricao{
+color:var(--secundario);
+font-size:13px;
+margin-bottom:14px;
+flex:1;
+}
+
+.preco{
+font-size:21px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+.preco-antigo{
+color:var(--secundario);
+text-decoration:line-through;
+font-size:12px;
+margin-left:5px;
+font-weight:normal;
+}
+
+.adicionar{
+width:100%;
+border:none;
+border-radius:8px;
+padding:11px;
+background:#203d58;
+color:var(--azul);
+font-weight:bold;
+}
+
+.adicionar:hover{
+background:var(--azul);
+color:#06111b;
+}
+
+.sem-produtos{
+grid-column:1/-1;
+text-align:center;
+color:var(--secundario);
+padding:40px;
+}
+
+.carrinho-secao{
+margin-top:65px;
+display:grid;
+grid-template-columns:1.4fr .8fr;
+gap:25px;
+align-items:start;
+}
+
+.caixa{
+background:var(--painel);
+border:1px solid var(--borda);
+border-radius:14px;
+padding:25px;
+}
+
+.caixa h2{margin-bottom:20px}
+
+.item-carrinho{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+border-bottom:1px solid var(--borda);
+padding:15px 0;
+}
+
+.item-nome{font-weight:bold}
+
+.item-preco{
+color:var(--verde);
+font-size:13px;
+}
+
+.quantidade{
+display:flex;
+align-items:center;
+gap:9px;
+margin-top:7px;
+}
+
+.quantidade button{
+background:var(--painel2);
+color:white;
+border:1px solid var(--borda);
+border-radius:5px;
+width:28px;
+height:28px;
+}
+
+.remover{
+border:none;
+background:transparent;
+color:#fb7185;
+font-size:12px;
+margin-top:5px;
+}
+
+.vazio{
+color:var(--secundario);
+text-align:center;
+padding:25px 0;
+}
+
+.linha-total{
+display:flex;
+justify-content:space-between;
+margin:12px 0;
+color:var(--secundario);
+}
+
+.linha-total strong{color:var(--texto)}
+
+.total-final{
+border-top:1px solid var(--borda);
+padding-top:18px;
+margin-top:18px;
+font-size:20px;
+}
+
+.total-final strong{color:var(--verde)}
+
+.finalizar{
+width:100%;
+margin-top:20px;
+}
+
+.finalizar:disabled{
+opacity:.5;
+cursor:not-allowed;
+}
+
+.aviso{
+text-align:center;
+color:var(--secundario);
+font-size:12px;
+margin-top:12px;
+}
+
+.mensagem{
+margin-top:15px;
+padding:12px;
+border-radius:8px;
+display:none;
+font-size:14px;
+}
+
+.mensagem.sucesso{
+display:block;
+background:#12352e;
+color:#6ee7b7;
+}
+
+.mensagem.erro{
+display:block;
+background:#431d28;
+color:#fda4af;
+}
+
+.pedido-detalhes{
+margin-top:12px;
+padding:14px;
+background:var(--painel2);
+border-radius:9px;
+font-size:13px;
+}
+
+footer{
+text-align:center;
+padding:35px 5%;
+border-top:1px solid var(--borda);
+color:var(--secundario);
+margin-top:60px;
+font-size:13px;
+}
+
+@media(max-width:1000px){
+.produtos{grid-template-columns:repeat(2,minmax(0,1fr))}
+.carrinho-secao{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+header{padding:14px 4%}
+.navbar{gap:12px}
+nav{
+order:3;
+width:100%;
+justify-content:center;
+gap:18px;
+}
+main{padding:22px 4%}
+.hero{padding:32px 23px}
+.hero-icone{display:none}
+.beneficios{grid-template-columns:1fr}
+.produtos{gap:12px}
+.produto-imagem{height:120px;font-size:55px}
+.produto-info{padding:12px}
+.produto h3{font-size:15px}
+.preco{font-size:17px}
+.preco-antigo{display:block;margin-left:0}
+.caixa{padding:17px}
+.item-carrinho{align-items:flex-start}
+.filtros input{min-width:100%}
+.filtros select{flex:1;min-width:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+
+<a href="#inicio" class="logo" style="text-decoration:none;color:white">
+NOVA<span>TECH</span>
+</a>
+
+<nav>
+<a href="#inicio">Início</a>
+<a href="#produtos">Produtos</a>
+<a href="#sobre">Sobre</a>
+<a href="#carrinho">Carrinho</a>
+</nav>
+
+<button class="carrinho-topo" onclick="irCarrinho()">
+Carrinho (<span id="contador">0</span>)
+</button>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+<div class="hero-texto">
+
+<span class="etiqueta">Tecnologia para o futuro</span>
+
+<h1>
+O próximo nível da sua
+<span>tecnologia.</span>
+</h1>
+
+<p>
+Descubra gadgets futuristas, acessórios inteligentes
+e produtos tecnológicos desenvolvidos para transformar
+sua rotina.
+</p>
+
+<a href="#produtos" class="botao">
+Explorar produtos
+</a>
+
+</div>
+
+<div class="hero-icone">🚀</div>
+
+</section>
+
+<section class="beneficios">
+
+<div class="beneficio">
+<strong>Entrega grátis</strong>
+<p>Frete grátis nesta demonstração acadêmica.</p>
+</div>
+
+<div class="beneficio">
+<strong>Compra demonstrativa</strong>
+<p>Nenhum dado de pagamento é solicitado.</p>
+</div>
+
+<div class="beneficio">
+<strong>Tecnologia futurista</strong>
+<p>Conheça produtos inovadores e inteligentes.</p>
+</div>
+
+</section>
+
+<section id="produtos">
+
+<div class="secao-titulo">
+
+<div>
+<h2>Nossos produtos</h2>
+<p>Encontre a tecnologia ideal para você.</p>
+</div>
+
+<p id="quantidadeProdutos">0 produtos</p>
+
+</div>
+
+<div class="filtros">
+
+<input
+type="search"
+id="pesquisa"
+placeholder="Pesquisar produtos..."
+aria-label="Pesquisar produtos"
+>
+
+<select id="filtro">
+<option value="todos">Todas as categorias</option>
+<option value="wearables">Wearables</option>
+<option value="casa">Casa Inteligente</option>
+<option value="audio">Áudio</option>
+<option value="celulares">Celulares</option>
+<option value="computadores">Computadores</option>
+<option value="perifericos">Periféricos</option>
+<option value="acessorios">Acessórios</option>
+</select>
+
+<select id="ordenacao">
+<option value="padrao">Ordem padrão</option>
+<option value="menor">Menor preço</option>
+<option value="maior">Maior preço</option>
+<option value="nome">Nome A–Z</option>
+</select>
+
+</div>
+
+<div class="produtos" id="listaProdutos"></div>
+
+</section>
+
+<section id="sobre" style="margin-top:65px">
+
+<div class="caixa">
+
+<h2>Sobre a NovaTech</h2>
+
+<p style="color:var(--secundario)">
+A NovaTech é um projeto acadêmico de comércio eletrônico
+desenvolvido com HTML5, CSS3 e JavaScript puro.
+O objetivo é apresentar um catálogo interativo de gadgets
+tecnológicos, permitindo pesquisar produtos, aplicar filtros,
+adicionar itens ao carrinho e simular a realização de pedidos.
+</p>
+
+</div>
+
+</section>
+
+<section class="carrinho-secao" id="carrinho">
+
+<div class="caixa">
+
+<h2>Seu carrinho</h2>
+
+<div id="itensCarrinho">
+<p class="vazio">Seu carrinho está vazio.</p>
+</div>
+
+</div>
+
+<div class="caixa">
+
+<h2>Resumo do pedido</h2>
+
+<div class="linha-total">
+<span>Subtotal</span>
+<strong id="subtotal">R$ 0,00</strong>
+</div>
+
+<div class="linha-total">
+<span>Frete</span>
+<strong style="color:var(--verde)">Grátis</strong>
+</div>
+
+<div class="linha-total total-final">
+<span>Total</span>
+<strong id="total">R$ 0,00</strong>
+</div>
+
+<button class="botao finalizar" id="botaoFinalizar">
+Finalizar pedido
+</button>
+
+<p class="aviso">
+Simulação acadêmica. Nenhum pagamento real.
+</p>
+
+<div id="mensagem" class="mensagem" role="status"></div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="logo">NOVA<span>TECH</span></div>
+
+<p>Projeto acadêmico de Desenvolvimento Web.</p>
+
+<p>HTML5 | CSS3 | JavaScript | DOM | LocalStorage</p>
+
+<p>© 2026 NovaTech - Todos os direitos reservados.</p>
+
+</footer>
+
+<script>
+"use strict";
+
+/* =====================================
+   1. CATÁLOGO DE PRODUTOS
+===================================== */
+
+const produtos = [
+
+{
+id:1,
+nome:"VisionAR Glass",
+categoria:"wearables",
+descricao:"Óculos inteligentes com GPS e tradução de idiomas em tempo real nas lentes.",
+preco:1899.90,
+antigo:2199.90,
+emoji:"🥽"
+},
+
+{
+id:2,
+nome:"PulseTouch Pro",
+categoria:"wearables",
+descricao:"Pulseira inteligente com feedback tátil e vibrações direcionais para games.",
+preco:699.90,
+antigo:799.90,
+emoji:"⌚"
+},
+
+{
+id:3,
+nome:"AuraRing Control",
+categoria:"wearables",
+descricao:"Anel inteligente para controlar dispositivos por gestos no ar.",
+preco:899.90,
+antigo:1099.90,
+emoji:"💍"
+},
+
+{
+id:4,
+nome:"HoloDesk AI",
+categoria:"casa",
+descricao:"Assistente de mesa com projeção holográfica 3D interativa.",
+preco:3299.90,
+antigo:3699.90,
+emoji:"🔮"
+},
+
+{
+id:5,
+nome:"HydroSmart",
+categoria:"casa",
+descricao:"Garrafa inteligente com esterilização UV-C e lembrete de hidratação.",
+preco:349.90,
+antigo:429.90,
+emoji:"🧴"
+},
+
+{
+id:6,
+nome:"Orbital Sound",
+categoria:"audio",
+descricao:"Caixa de som flutuante com levitação magnética e indução.",
+preco:1499.90,
+antigo:1799.90,
+emoji:"🔊"
+},
+
+{
+id:7,
+nome:"Notebook Pro",
+categoria:"computadores",
+descricao:"Desempenho para estudos e trabalho.",
+preco:2499.90,
+antigo:2899.90,
+emoji:"💻"
+},
+
+{
+id:8,
+nome:"Mouse Gamer",
+categoria:"perifericos",
+descricao:"Precisão e conforto para jogar.",
+preco:149.90,
+antigo:199.90,
+emoji:"🖱️"
+},
+
+{
+id:9,
+nome:"Teclado Mecânico",
+categoria:"perifericos",
+descricao:"Digitação confortável e responsiva.",
+preco:279.90,
+antigo:329.90,
+emoji:"⌨️"
+},
+
+{
+id:10,
+nome:"Headset Gamer",
+categoria:"acessorios",
+descricao:"Áudio imersivo para jogos e chamadas.",
+preco:199.90,
+antigo:249.90,
+emoji:"🎧"
+},
+
+{
+id:11,
+nome:"Monitor Full HD",
+categoria:"computadores",
+descricao:"Imagens nítidas para o dia a dia.",
+preco:899.90,
+antigo:999.90,
+emoji:"🖥️"
+},
+
+{
+id:12,
+nome:"Webcam HD",
+categoria:"acessorios",
+descricao:"Ideal para aulas e reuniões online.",
+preco:129.90,
+antigo:159.90,
+emoji:"📷"
+},
+
+{
+id:13,
+nome:"SSD 1 TB",
+categoria:"computadores",
+descricao:"Mais espaço para seus arquivos.",
+preco:459.90,
+antigo:529.90,
+emoji:"💾"
+},
+
+{
+id:14,
+nome:"Mousepad Gamer",
+categoria:"acessorios",
+descricao:"Superfície ampla para movimentos precisos.",
+preco:79.90,
+antigo:99.90,
+emoji:"🎮"
+},
+
+{
+id:15,
+nome:"Samsung Galaxy A55",
+categoria:"celulares",
+descricao:"Tela AMOLED e ótimo desempenho.",
+preco:1899.90,
+antigo:2199.90,
+emoji:"📱"
+},
+
+{
+id:16,
+nome:"iPhone 15",
+categoria:"celulares",
+descricao:"Câmera avançada e desempenho rápido.",
+preco:3899.90,
+antigo:4299.90,
+emoji:"📱"
+},
+
+{
+id:17,
+nome:"Redmi Note 13",
+categoria:"celulares",
+descricao:"Tela ampla e bateria para sua rotina.",
+preco:1299.90,
+antigo:1499.90,
+emoji:"📱"
+},
+
+{
+id:18,
+nome:"Moto G85",
+categoria:"celulares",
+descricao:"Celular versátil para fotos e aplicativos.",
+preco:1599.90,
+antigo:1799.90,
+emoji:"📱"
+},
+
+{
+id:19,
+nome:"Samsung Galaxy S24",
+categoria:"celulares",
+descricao:"Desempenho premium e recursos avançados.",
+preco:3299.90,
+antigo:3699.90,
+emoji:"📱"
+},
+
+{
+id:20,
+nome:"iPhone 14",
+categoria:"celulares",
+descricao:"Design elegante e câmeras de qualidade.",
+preco:2999.90,
+antigo:3399.90,
+emoji:"📱"
+}
+
+];
+
+/* =====================================
+   2. CONFIGURAÇÕES E LOCALSTORAGE
+===================================== */
+
+const CHAVE_CARRINHO = "novatech_carrinho";
+
+function carregarCarrinho(){
+
+try{
+
+const dados = localStorage.getItem(CHAVE_CARRINHO);
+
+if(!dados) return [];
+
+const carrinhoSalvo = JSON.parse(dados);
+
+if(!Array.isArray(carrinhoSalvo)) return [];
+
+return carrinhoSalvo.filter(item => {
+
+return produtos.some(p => p.id === item.id)
+&& Number.isInteger(item.quantidade)
+&& item.quantidade > 0;
+
+});
+
+}catch(erro){
+
+console.error("Erro ao carregar carrinho:",erro);
+return [];
+
+}
+
+}
+
+let carrinho = carregarCarrinho();
+
+const moeda = valor => valor.toLocaleString(
+"pt-BR",
+{
+style:"currency",
+currency:"BRL"
+}
+);
+
+function salvarCarrinho(){
+
+localStorage.setItem(
+CHAVE_CARRINHO,
+JSON.stringify(carrinho)
+);
+
+}
+
+/* =====================================
+   3. NOMES DAS CATEGORIAS
+===================================== */
+
+function nomeCategoria(categoria){
+
+const nomes = {
+
+wearables:"Wearables",
+casa:"Casa Inteligente",
+audio:"Áudio Avançado",
+celulares:"Celulares",
+computadores:"Computadores",
+perifericos:"Periféricos",
+acessorios:"Acessórios"
+
+};
+
+return nomes[categoria] || categoria;
+
+}
+
+/* =====================================
+   4. RENDERIZAÇÃO DOS PRODUTOS
+===================================== */
+
+function renderProdutos(){
+
+const lista = document.getElementById("listaProdutos");
+
+const termo = document
+.getElementById("pesquisa")
+.value
+.trim()
+.toLowerCase();
+
+const categoria = document
+.getElementById("filtro")
+.value;
+
+const ordem = document
+.getElementById("ordenacao")
+.value;
+
+let encontrados = produtos.filter(p => {
+
+const correspondeNome =
+p.nome.toLowerCase().includes(termo);
+
+const correspondeDescricao =
+p.descricao.toLowerCase().includes(termo);
+
+const correspondeCategoria =
+categoria === "todos" || p.categoria === categoria;
+
+return (
+(correspondeNome || correspondeDescricao)
+&& correspondeCategoria
+);
+
+});
+
+if(ordem === "menor"){
+
+encontrados.sort((a,b) => a.preco-b.preco);
+
+}else if(ordem === "maior"){
+
+encontrados.sort((a,b) => b.preco-a.preco);
+
+}else if(ordem === "nome"){
+
+encontrados.sort((a,b) => a.nome.localeCompare(b.nome));
+
+}
+
+document.getElementById("quantidadeProdutos").textContent =
+encontrados.length +
+(encontrados.length === 1 ? " produto" : " produtos");
+
+if(encontrados.length === 0){
+
+lista.innerHTML =
+'<p class="sem-produtos">Nenhum produto encontrado.</p>';
+
+return;
+
+}
+
+lista.innerHTML = encontrados.map(p => `
+
+<article class="produto">
+
+<div class="produto-imagem">
+${p.emoji}
+</div>
+
+<div class="produto-info">
+
+<span class="categoria">
+${nomeCategoria(p.categoria)}
+</span>
+
+<h3>${p.nome}</h3>
+
+<p class="descricao">
+${p.descricao}
+</p>
+
+<p class="preco">
+
+${moeda(p.preco)}
+
+<span class="preco-antigo">
+${moeda(p.antigo)}
+</span>
+
+</p>
+
+<button
+class="adicionar"
+onclick="adicionarCarrinho(${p.id})"
+>
++ Adicionar ao carrinho
+</button>
+
+</div>
+
+</article>
+
+`).join("");
+
+}
+
+/* =====================================
+   5. ADICIONAR AO CARRINHO
+===================================== */
+
+function adicionarCarrinho(id){
+
+const item = carrinho.find(p => p.id === id);
+
+if(item){
+
+item.quantidade++;
+
+}else{
+
+carrinho.push({
+id:id,
+quantidade:1
+});
+
+}
+
+salvarCarrinho();
+esconderMensagem();
+renderCarrinho();
+
+}
+
+/* =====================================
+   6. ALTERAR QUANTIDADE
+===================================== */
+
+function alterarQuantidade(id,mudanca){
+
+const item = carrinho.find(p => p.id === id);
+
+if(!item) return;
+
+item.quantidade += mudanca;
+
+if(item.quantidade <= 0){
+
+carrinho = carrinho.filter(p => p.id !== id);
+
+}
+
+salvarCarrinho();
+esconderMensagem();
+renderCarrinho();
+
+}
+
+/* =====================================
+   7. REMOVER PRODUTO
+===================================== */
+
+function removerItem(id){
+
+carrinho = carrinho.filter(p => p.id !== id);
+
+salvarCarrinho();
+esconderMensagem();
+renderCarrinho();
+
+}
+
+/* =====================================
+   8. MOSTRAR CARRINHO
+===================================== */
+
+function renderCarrinho(){
+
+const container = document.getElementById("itensCarrinho");
+
+let subtotal = 0;
+let quantidadeTotal = 0;
+
+if(carrinho.length === 0){
+
+container.innerHTML =
+'<p class="vazio">Seu carrinho está vazio.</p>';
+
+}else{
+
+container.innerHTML = carrinho.map(item => {
+
+const p = produtos.find(
+produto => produto.id === item.id
+);
+
+if(!p) return "";
+
+const totalItem = p.preco * item.quantidade;
+
+subtotal += totalItem;
+quantidadeTotal += item.quantidade;
+
+return `
+
+<div class="item-carrinho">
+
+<div>
+
+<div class="item-nome">
+${p.emoji} ${p.nome}
+</div>
+
+<div class="item-preco">
+${moeda(p.preco)} cada
+</div>
+
+<div class="quantidade">
+
+<button
+onclick="alterarQuantidade(${p.id},-1)"
+aria-label="Diminuir quantidade"
+>
+−
+</button>
+
+<span>${item.quantidade}</span>
+
+<button
+onclick="alterarQuantidade(${p.id},1)"
+aria-label="Aumentar quantidade"
+>
++
+</button>
+
+</div>
+
+<button
+class="remover"
+onclick="removerItem(${p.id})"
+>
+Remover
+</button>
+
+</div>
+
+<strong>${moeda(totalItem)}</strong>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+document.getElementById("contador").textContent =
+quantidadeTotal;
+
+document.getElementById("subtotal").textContent =
+moeda(subtotal);
+
+document.getElementById("total").textContent =
+moeda(subtotal);
+
+document.getElementById("botaoFinalizar").disabled =
+carrinho.length === 0;
+
+}
+
+/* =====================================
+   9. MENSAGENS DO SISTEMA
+===================================== */
+
+function mostrarMensagem(texto,tipo){
+
+const mensagem = document.getElementById("mensagem");
+
+mensagem.innerHTML = "";
+mensagem.textContent = texto;
+
+mensagem.className = "mensagem " + tipo;
+
+}
+
+function esconderMensagem(){
+
+const mensagem = document.getElementById("mensagem");
+
+mensagem.textContent = "";
+mensagem.className = "mensagem";
+
+}
+
+/* =====================================
+   10. FINALIZAR PEDIDO
+===================================== */
+
+document
+.getElementById("botaoFinalizar")
+.addEventListener("click",function(){
+
+if(carrinho.length === 0){
+
+mostrarMensagem(
+"Seu carrinho está vazio. Adicione um produto antes de continuar.",
+"erro"
+);
+
+return;
+
+}
+
+const numeroPedido =
+"NT-" + Date.now().toString().slice(-6);
+
+const itensPedido = carrinho.map(item => {
+
+const produto = produtos.find(p => p.id === item.id);
+
+return {
+
+nome:produto.nome,
+quantidade:item.quantidade,
+preco:produto.preco
+
+};
+
+});
+
+const valorTotal = itensPedido.reduce(
+(total,item) => total + item.preco * item.quantidade,
+0
+);
+
+// Limpa o carrinho e salva a alteração.
+
+carrinho = [];
+
+salvarCarrinho();
+renderCarrinho();
+
+// Exibe a confirmação do pedido.
+
+const mensagem = document.getElementById("mensagem");
+
+mensagem.className = "mensagem sucesso";
+
+mensagem.innerHTML = `
+
+<strong>Pedido finalizado com sucesso!</strong>
+
+<div class="pedido-detalhes">
+
+<p><strong>Número:</strong> ${numeroPedido}</p>
+
+<p><strong>Produtos:</strong> ${itensPedido.length}</p>
+
+<p><strong>Total:</strong> ${moeda(valorTotal)}</p>
+
+<hr style="border-color:var(--borda);margin:10px 0">
+
+${itensPedido.map(item => `
+
+<p>
+${item.nome} — ${item.quantidade} unidade(s)
+</p>
+
+`).join("")}
+
+<p style="margin-top:10px;color:var(--verde)">
+Nenhum pagamento real foi realizado.
+</p>
+
+</div>
+
+`;
+
+document.getElementById("carrinho")
+.scrollIntoView({behavior:"smooth"});
+
+});
+
+/* =====================================
+   11. BOTÃO DO CARRINHO
+===================================== */
+
+function irCarrinho(){
+
+document.getElementById("carrinho")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+/* =====================================
+   12. BUSCA E FILTROS
+===================================== */
+
+document
+.getElementById("pesquisa")
+.addEventListener("input",renderProdutos);
+
+document
+.getElementById("filtro")
+.addEventListener("change",renderProdutos);
+
+document
+.getElementById("ordenacao")
+.addEventListener("change",renderProdutos);
+
+/* =====================================
+   13. INICIALIZAÇÃO DO SISTEMA
+===================================== */
+
+renderProdutos();
+renderCarrinho();
+
+</script>
+
+</body>
+</html>
